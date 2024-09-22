@@ -4,20 +4,25 @@ pipeline {
 	stages {
 		stage('Checkout Github'){
 			steps {
-				git branch: 'main', credentialsId: 'jen-doc-git', url: 'https://github.com/iQuantC/NodeApp.git'	
+				git branch: 'main', credentialsId: 'jenkins-test-git', url: 'https://github.com/Ayush7346/jenkins-test.git'
 			}
 		}		
 		stage('Install node dependencies'){
+			steps {
 			
+			}
 		}
 		stage('Test Code'){
-			
+			steps {
+			}
 		}
 		stage('Build Docker Image'){
-			
+			steps{
+			}
 		}
 		stage('Push Image to DockerHub'){
-			
+			steps {
+			}
 		}
 	}
 
