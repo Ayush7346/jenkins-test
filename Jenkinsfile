@@ -4,7 +4,7 @@ pipeline {
 	environment {
 	 build = 0.1 
 	}
-	x
+	
 	stages {
 		stage('Checkout Github'){
 			steps {
