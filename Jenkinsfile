@@ -7,23 +7,23 @@ pipeline {
 				git branch: 'main', credentialsId: 'jenkins-test-git', url: 'https://github.com/Ayush7346/jenkins-test.git'
 			}
 		}		
-		stage('Install node dependencies'){
-			steps {
+		// stage('Install node dependencies'){
+		// 	steps {
 			
-			}
-		}
-		stage('Test Code'){
-			steps {
-			}
-		}
-		stage('Build Docker Image'){
-			steps{
-			}
-		}
-		stage('Push Image to DockerHub'){
-			steps {
-			}
-		}
+		// 	}
+		// }
+		// stage('Test Code'){
+		// 	steps {
+		// 	}
+		// }
+		// stage('Build Docker Image'){
+		// 	steps{
+		// 	}
+		// }
+		// stage('Push Image to DockerHub'){
+		// 	steps {
+		// 	}
+		// }
 	}
 
 	post {
