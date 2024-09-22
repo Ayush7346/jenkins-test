@@ -13,8 +13,10 @@ pipeline {
 		}		
 		stage('Docker Build'){
 			steps {
-		        echo "Hello Docker Build"
-			    sh "docker build -t  flask-app:${build}"
+		       script {
+		         withDockerRegistry(credentialsId: '83e52f80-e3d9-4688-98e7-6f323ce15f96') 
+		         sh "docker build -t tempdockhub/jenkins:123"
+		       }
 			}
 		}
 		// stage('Test Code'){
