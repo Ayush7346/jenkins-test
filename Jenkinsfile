@@ -1,6 +1,8 @@
 pipeline {
 	agent any
-	
+	environment {
+	 build = 0.0.1 
+	}
 	stages {
 		stage('Checkout Github'){
 			steps {
@@ -10,7 +12,7 @@ pipeline {
 		stage('Docker Build'){
 			steps {
 		        echo "Hello Docker Build"
-			    sh "docker build -t  "
+			    sh "docker build -t  flask-app:${build}"
 			}
 		}
 		// stage('Test Code'){
