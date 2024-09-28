@@ -26,6 +26,7 @@ pipeline {
 		 stage('Upload Image') {
          steps{    
              script {
+                sh 'docker --version'
                 docker.withRegistry( '', registryCredential ) {
                 dockerImage.push()
                 }
