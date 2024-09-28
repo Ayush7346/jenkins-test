@@ -55,4 +55,3 @@ pipeline {
 			echo 'Build&Deploy failed. Check logs.'
 		}
 	}
-}
