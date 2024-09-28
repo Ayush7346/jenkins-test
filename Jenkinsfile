@@ -28,7 +28,7 @@ pipeline {
              script {
                 sh 'docker --version'
                 sh 'docker login -u tempdockhub -p dckr_pat_YC2zOSrDCO4SqZGZDI99gV_xGKE'
-                sh 'docker push dockerImage'
+                sh 'docker push tempdockhub/dockerImage'
                 }
             }
           }
