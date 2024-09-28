@@ -16,6 +16,7 @@ pipeline {
 		stage('Building image') {
           steps{
             script {
+              env.PATH = "/usr/local/bin:${env.PATH}"
               sh 'docker --version'
               dockerImage = docker.build registry
             }
