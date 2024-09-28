@@ -27,8 +27,8 @@ pipeline {
          steps{    
              script {
                 sh 'docker --version'
-                docker.withRegistry( 'https://index.docker.io/v1/', registryCredential ) {
-                dockerImage.push()
+                sh 'docker login -u tempdockhub -p dckr_pat_YC2zOSrDCO4SqZGZDI99gV_xGKE'
+                SH 'docker push dockerImage'
                 }
             }
           }
