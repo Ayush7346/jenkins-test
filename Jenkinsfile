@@ -27,11 +27,24 @@ pipeline {
          steps{    
              script {
                 sh 'docker --version'
+                sh 'docker login -u tempdockhub -p dckr_pat_YC2zOSrDCO4SqZGZDI99gV_xGKE'
+                SH 'docker push dockerImage'
                 }
             }
           }
         }
-		
+		// stage('Test Code'){
+		// 	steps {
+		// 	}
+		// }
+		// stage('Build Docker Image'){
+		// 	steps{
+		// 	}
+		// }
+		// stage('Push Image to DockerHub'){
+		// 	steps {
+		// 	}
+		// }
 	}
 
 	post {
