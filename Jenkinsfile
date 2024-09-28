@@ -30,7 +30,7 @@ pipeline {
                 sh 'docker login -u tempdockhub -p dckr_pat_YC2zOSrDCO4SqZGZDI99gV_xGKE'
                 sh 'echo ${dockerImage}'
                 sh 'docker build -t tempdockhub/myapp:0.1 .'
-                sh 'docker push tempdockhub/myapp:latest'
+                sh 'docker push tempdockhub/myapp:0.1'
                 }
             }
           }
