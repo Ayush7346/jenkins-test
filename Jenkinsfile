@@ -27,7 +27,7 @@ pipeline {
          steps{    
              script {
                 sh 'docker --version'
-                docker.withRegistry( '', registryCredential ) {
+                docker.withRegistry( 'https://index.docker.io/v1/', registryCredential ) {
                 dockerImage.push()
                 }
             }
