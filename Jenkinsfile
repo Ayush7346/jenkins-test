@@ -4,6 +4,7 @@ pipeline {
 	environment {
 	 build = 0.1 
 	 registry = "tempdockhub/mypythonapp"
+	 registryCredential = '83e52f80-e3d9-4688-98e7-6f323ce15f96'
 	 dockerImage = ''
 	}
 	
@@ -16,22 +17,21 @@ pipeline {
 		stage('Building image') {
           steps{
             script {
-              env.PATH = "/usr/local/bin:${env.PATH}"
+              env.PATH = "/usr/local/bin:${env.PATH}" //Adding docker path to jenkins
               sh 'docker --version'
               dockerImage = docker.build registry
             }
           }
         }
-		// stage('Docker Build'){
-		// 	steps {
-		//        script {
-		//          withDockerRegistry(credentialsId: '83e52f80-e3d9-4688-98e7-6f323ce15f96') {
-		//           sh "docker build -t tempdockhub/jenkins:123"
-		//          }
-		        
-		//        }
-		// 	}
-		// }
+		 stage('Upload Image') {
+         steps{    
+             script {
+                docker.withRegistry( '', registryCredential ) {
+                dockerImage.push()
+                }
+            }
+          }
+        }
 		// stage('Test Code'){
 		// 	steps {
 		// 	}
