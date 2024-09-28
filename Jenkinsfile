@@ -3,6 +3,8 @@ pipeline {
 	
 	environment {
 	 build = 0.1 
+	 registry = "tempdockhub/mypythonapp"
+	 dockerImage = ''
 	}
 	
 	stages {
@@ -10,17 +12,24 @@ pipeline {
 			steps {
 				git branch: 'main', credentialsId: 'jenkins-test-git', url: 'https://github.com/Ayush7346/jenkins-test.git'
 			}
-		}		
-		stage('Docker Build'){
-			steps {
-		       script {
-		         withDockerRegistry(credentialsId: '83e52f80-e3d9-4688-98e7-6f323ce15f96') {
-		          sh "docker build -t tempdockhub/jenkins:123"
-		         }
-		        
-		       }
-			}
 		}
+		stage('Building image') {
+          steps{
+            script {
+              dockerImage = docker.build registry
+            }
+          }
+        }
+		// stage('Docker Build'){
+		// 	steps {
+		//        script {
+		//          withDockerRegistry(credentialsId: '83e52f80-e3d9-4688-98e7-6f323ce15f96') {
+		//           sh "docker build -t tempdockhub/jenkins:123"
+		//          }
+		        
+		//        }
+		// 	}
+		// }
 		// stage('Test Code'){
 		// 	steps {
 		// 	}
